@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>項目詳情 - 林靖宜 Chloe</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .project-detail {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .back-button {
+            background: #8B4513;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .project-main-image {
+            width: 100%;
+            height: 400px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+        }
+        
+        .project-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        .project-text {
+            line-height: 1.8;
+        }
+        
+        .project-text h3 {
+            color: #8B4513;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .project-sidebar {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            height: fit-content;
+        }
+        
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-item h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            height: 150px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>林靖宜 Chloe</h1>
+            <ul>
+                <li><a href="index.html">返回首頁</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="index.html#portfolio" class="back-button">← 返回作品集</a>
+        
+        <div class="project-header">
+            <h1>項目標題</h1>
+            <p class="subtitle">項目副標題或簡短描述</p>
+        </div>
+        
+        <div class="project-main-image">
+            <div class="image-placeholder">主要項目圖片位置</div>
+        </div>
+        
+        <div class="project-content">
+            <div class="project-text">
+                <h3>項目背景</h3>
+                <p>這裡描述項目的背景信息、起源和目標...</p>
+                
+                <h3>過程與方法</h3>
+                <p>這裡描述項目的實施過程、使用的方法和工具...</p>
+                
+                <h3>成果與成效</h3>
+                <p>這裡展示項目的最終成果、數據和影響...</p>
+                
+                <h3>個人反思</h3>
+                <p>這裡寫個人在項目中的收穫、學習和成長...</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">圖片1</div>
+                    <div class="gallery-item">圖片2</div>
+                    <div class="gallery-item">圖片3</div>
+                </div>
+            </div>
+            
+            <div class="project-sidebar">
+                <div class="info-item">
+                    <h4>項目時間</h4>
+                    <p>YYYY年MM月 - YYYY年MM月</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>項目類型</h4>
+                    <p>個人/團隊項目</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>使用技能</h4>
+                    <div class="project-tags">
+                        <span class="tag">技能1</span>
+                        <span class="tag">技能2</span>
+                        <span class="tag">技能3</span>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <h4>相關連結</h4>
+                    <p><a href="#">外部連結1</a></p>
+                    <p><a href="#">外部連結2</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
