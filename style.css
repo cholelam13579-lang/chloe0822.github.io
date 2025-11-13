@@ -355,50 +355,78 @@ section h2 {
     left: 0;
 }
 
-/* 作品展示 */
-.portfolio {
-    background: #f8f9fa;
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
+/* 作品集樣式優化 */
 .portfolio-item {
     background: white;
-    padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .portfolio-item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.portfolio-item h3 {
+.project-image {
+    height: 200px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+}
+
+.image-placeholder {
+    color: #999;
+    font-size: 1rem;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
     color: #8B4513;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-size: 1.3rem;
 }
 
-.portfolio-item p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.project-details {
-    background: #f8f9fa;
-    padding: 1rem;
-    border-radius: 5px;
-    margin-top: 1rem;
-}
-
-.project-details p {
-    margin-bottom: 0.5rem;
+.project-date {
+    color: #666;
     font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.project-tags {
+    margin-bottom: 1rem;
+}
+
+.tag {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 4px 12px;
+    margin: 0 5px 5px 0;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.view-project-btn {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.view-project-btn:hover {
+    background: #43a047;
 }
 
 /* 經歷時間線 */

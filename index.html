@@ -12,7 +12,7 @@
     <div class="background-image"></div> <!-- 新增背景圖片層 -->
     <div class="background-container">
         <div class="image-frame">
-            <img src="歡迎.jpg" alt="林靖宜" class="profile-image">
+            <img src="封面.png" alt="林靖宜" class="profile-image">
         </div>
     </div>
     <div class="welcome-content">
@@ -259,6 +259,24 @@
                 }
             });
         });
+        // 打開項目詳情頁面
+function openProject(projectUrl) {
+    window.open(projectUrl, '_blank');
+}
+
+// 為查看詳情按鈕添加點擊事件（備用）
+document.addEventListener('DOMContentLoaded', function() {
+    const viewButtons = document.querySelectorAll('.view-project-btn');
+    viewButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation(); // 防止觸發父元素點擊
+            const portfolioItem = this.closest('.portfolio-item');
+            // 這裡可以根據具體項目打開對應頁面
+            // 暫時先用alert示範
+            alert('將打開項目詳情頁面');
+        });
+    });
+});
     </script>
 </body>
 </html>
