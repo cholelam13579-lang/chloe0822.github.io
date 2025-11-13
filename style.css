@@ -1,0 +1,602 @@
+/* 重置樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft JhengHei', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/* 修改後的歡迎畫面 CSS - 背景可放圖片 */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease-out;
+    overflow: hidden;
+}
+
+/* 背景圖片層 */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('歡迎.jpg'); /* 你的背景圖片 */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* 圖片容器 */
+.background-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    z-index: 1;
+}
+
+/* 圖片框架 */
+.image-frame {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 8px solid #c8e6c9; /* 淺綠色邊框 */
+}
+
+/* 個人照片 */
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1px) brightness(1.02);
+}
+
+/* 文字內容 */
+.welcome-content {
+    text-align: center;
+    color: #333; /* 黑色文字 */
+    z-index: 1;
+}
+
+.main-name {
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    animation: fadeInDown 1.2s ease-out;
+    font-family: 'Arial', sans-serif;
+    color: #2e7d32; /* 深綠色 */
+}
+
+.chinese-name {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    animation: fadeInUp 1.2s ease-out 0.3s both;
+    color: #333; /* 黑色 */
+}
+
+.enter-btn {
+    background: #4caf50; /* 綠色按鈕 */
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 1px;
+    animation: fadeInUp 1.2s ease-out 0.6s both;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.enter-btn:hover {
+    background: #43a047; /* 深一點的綠色 */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* 動畫效果 */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .image-frame {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .main-name {
+        font-size: 3rem;
+    }
+    
+    .chinese-name {
+        font-size: 1.4rem;
+    }
+    
+    .enter-btn {
+        padding: 12px 35px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-frame {
+        width: 180px;
+        height: 180px;
+        border-width: 6px;
+    }
+    
+    .main-name {
+        font-size: 2.5rem;
+    }
+    
+    .chinese-name {
+        font-size: 1.2rem;
+    }
+}
+/* 主頁英雄區 */
+.hero {
+    background: linear-gradient(135deg, #228B22 0%, #8B4513 100%);
+    color: white;
+    text-align: center;
+    padding: 150px 0 100px;
+    margin-top: 60px;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-bottom: 2rem;
+    object-fit: cover;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+/* 現代感版本導航欄 */
+nav {
+    background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 50%, #c5e1a5 100%);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: #37474f; /* 深灰藍色 */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.nav-links a:hover::before {
+    left: 100%;
+}
+
+.nav-links a:hover {
+    color: #1b5e20;
+    background: rgba(255,255,255,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+/* 各區段通用樣式 */
+section {
+    padding: 80px 0;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #8B4513;
+}
+
+/* 關於我 */
+.about {
+    background: #f8f9fa;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.about-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-item h3 {
+    color: #228B22;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.about-item ul {
+    list-style-position: inside;
+}
+
+.about-item li {
+    margin-bottom: 0.5rem;
+}
+
+/* 專業能力 */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.skill-category h3 {
+    color: #8B4513;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.skill-category ul {
+    list-style: none;
+    text-align: left;
+}
+
+.skill-category li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.skill-category li:before {
+    content: "•";
+    color: #228B22;
+    position: absolute;
+    left: 0;
+}
+
+/* 作品展示 */
+.portfolio {
+    background: #f8f9fa;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-item h3 {
+    color: #8B4513;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.portfolio-item p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.project-details {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.project-details p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* 經歷時間線 */
+.experience {
+    background: white;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #8B4513;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.timeline-date {
+    flex: 1;
+    padding: 0 2rem;
+    text-align: right;
+    font-weight: bold;
+    color: #8B4513;
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+    text-align: left;
+}
+
+.timeline-content {
+    flex: 2;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.timeline-content:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.timeline-item:nth-child(even) .timeline-content:before {
+    right: 100%;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #f8f9fa transparent transparent;
+}
+
+.timeline-item:nth-child(odd) .timeline-content:before {
+    left: 100%;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #f8f9fa;
+}
+
+.timeline-content h3 {
+    color: #8B4513;
+    margin-bottom: 0.5rem;
+}
+
+/* 聯絡資訊 */
+.contact {
+    background: #228B22;
+    color: white;
+}
+
+.contact h2 {
+    color: white;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.contact-item h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* 頁尾 */
+footer {
+    background: #8B4513;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* 動畫 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    nav .container {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0.5rem 1rem;
+    }
+    
+    .hero {
+        padding: 120px 0 80px;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    section h2 {
+        font-size: 2rem;
+    }
+    
+    .welcome-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .welcome-content p {
+        font-size: 1.2rem;
+    }
+    
+    .timeline:before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+    }
+    
+    .timeline-date {
+        flex: 0 0 100px;
+        text-align: left !important;
+        padding: 0 1rem 0 0;
+    }
+    
+    .timeline-content:before {
+        left: -20px !important;
+        right: auto !important;
+        border-width: 10px 10px 10px 0 !important;
+        border-color: transparent #f8f9fa transparent transparent !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-grid,
+    .skills-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .avatar {
+        width: 150px;
+        height: 150px;
+    }
+}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林靖宜 Chloe - 個人網站</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- 修改後的歡迎畫面 - 背景可放圖片 -->
+<div id="welcome-screen" class="welcome-screen">
+    <div class="background-image"></div> <!-- 新增背景圖片層 -->
+    <div class="background-container">
+        <div class="image-frame">
+            <img src="歡迎.jpg" alt="林靖宜" class="profile-image">
+        </div>
+    </div>
+    <div class="welcome-content">
+        <h1 class="main-name">Chloe</h1>
+        <p class="chinese-name">林靖宜</p>
+        <button id="enter-btn" class="enter-btn">進入網站</button>
+    </div>
+</div>
+  <!-- 修改後的導航欄 -->
+<nav>
+    <div class="container">
+        <ul class="nav-links">
+            <li><a href="#home">首頁</a></li>
+            <li><a href="#about">關於我</a></li>
+            <li><a href="#skills">專業能力</a></li>
+            <li><a href="#portfolio">作品集</a></li>
+            <li><a href="#interests">個人興趣</a></li>
+            <li><a href="#experience">經歷</a></li>
+            <li><a href="#contact">聯絡</a></li>
+        </ul>
+    </div>
+</nav>
+    <!-- 主頁 -->
+    <section id="home" class="hero">
+        <div class="container">
+            <img src="images/你的照片.jpg" alt="林靖宜" class="avatar">
+            <h2>你好，我是林靖宜 (Chloe)</h2>
+            <p>澳門科技大學食品與營養科學學士 | GPA 3.58/4.0</p>
+            <p>結合科學知識與實踐經驗，致力於食品安全與營養健康推廣</p>
+        </div>
+    </section>
+
+    <!-- 關於我 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>關於我</h2>
+            <div class="about-grid">
+                <div class="about-item">
+                    <h3>個人簡介</h3>
+                    <p>21歲，現居澳門，就讀澳門科技大學食品與營養科學學士學位課程</p>
+                    <p>累計GPA: 3.58/4.0，預計2026年畢業</p>
+                </div>
+                <div class="about-item">
+                    <h3>學術成就</h3>
+                    <ul>
+                        <li>院長優秀生榜（2023/2024）</li>
+                        <li>工銀澳門優才獎學金</li>
+                        <li>中學保薦生全額獎學金</li>
+                        <li>第五屆"意誠杯"健康料理大賽冠軍</li>
+                    </ul>
+                </div>
+                <div class="about-item">
+                    <h3>職業目標</h3>
+                    <p>希望在食品質量控制、營養推廣或食品研發領域發展，結合專業知識與實踐經驗，為食品安全與公共健康貢獻力量。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 專業能力 -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>專業能力</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>語言能力</h3>
+                    <ul>
+                        <li>粵語 (母語)</li>
+                        <li>普通話 (流利)</li>
+                        <li>英語 (CET-4)</li>
+                        <li>葡萄牙語 (A1級認證)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>技術技能</h3>
+                    <ul>
+                        <li>Word/PPT文書處理</li>
+                        <li>Excel/SPSS數據分析</li>
+                        <li>中文打字：65字/分鐘</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>專業知識</h3>
+                    <ul>
+                        <li>食品加工技術</li>
+                        <li>食品毒理學</li>
+                        <li>營養與疾病</li>
+                        <li>食品安全與品質控制</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- 作品展示 -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <h2>作品集</h2>
+        <div class="portfolio-grid">
+            <!-- 項目一：健康料理大賽 -->
+            <div class="portfolio-item" onclick="openProject('project1.html')">
+                <div class="project-image">
+                    <div class="image-placeholder">圖片位置</div>
+                </div>
+                <div class="project-info">
+                    <h3>健康料理大賽冠軍作品</h3>
+                    <p>為高血脂症患者設計的營養餐單</p>
+                    <p class="project-date">2023年11月</p>
+                    <div class="project-tags">
+                        <span class="tag">營養學</span>
+                        <span class="tag">團隊合作</span>
+                        <span class="tag">創意料理</span>
+                    </div>
+                    <button class="view-project-btn">查看詳情 →</button>
+                </div>
+            </div>
+
+            <!-- 項目二：食品廠實習 -->
+            <div class="portfolio-item" onclick="openProject('project2.html')">
+                <div class="project-image">
+                    <div class="image-placeholder">圖片位置</div>
+                </div>
+                <div class="project-info">
+                    <h3>食品質量控制實習</h3>
+                    <p>種速科研大健康製造廠實習經驗</p>
+                    <p class="project-date">2025年6月-7月</p>
+                    <div class="project-tags">
+                        <span class="tag">品質控制</span>
+                        <span class="tag">生產流程</span>
+                        <span class="tag">食品安全</span>
+                    </div>
+                    <button class="view-project-btn">查看詳情 →</button>
+                </div>
+            </div>
+
+            <!-- 項目三：科學館導賞 -->
+            <div class="portfolio-item" onclick="openProject('project3.html')">
+                <div class="project-image">
+                    <div class="image-placeholder">圖片位置</div>
+                </div>
+                <div class="project-info">
+                    <h3>科學推廣與教育</h3>
+                    <p>澳門科學館-</p>
+                    <p class="project-date">2024年6月-至今</p>
+                    <div class="project-tags">
+                        <span class="tag">公眾溝通</span>
+                        <span class="tag">科學教育</span>
+                        <span class="tag">服務業</span>
+                    </div>
+                    <button class="view-project-btn">查看詳情 →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- 經歷 -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2>專業經歷</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024年6月-至今</div>
+                    <div class="timeline-content">
+                        <h3>澳門科學館 - 導賞員</h3>
+                        <p>協助展覽中心前線工作、公眾指引和諮詢服務</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年6月-7月</div>
+                    <div class="timeline-content">
+                        <h3>種速科研大健康製造廠 - 生產技術員/QC實習</h3>
+                        <p>生產技術員：根據生產流程操作機器</p>
+                        <p>QC：產品生產後的品質檢測和把握工作</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年11月</div>
+                    <div class="timeline-content">
+                        <h3>第五屆"意誠杯"健康料理大賽 - 冠軍</h3>
+                        <p>主辦單位：澳門科技大學醫學院學生籌備委員會</p>
+                        <p>為高血脂症患者設計營養餐單並現場制作料理</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年6月-8月</div>
+                    <div class="timeline-content">
+                        <h3>澳門教育及青年發展局 - 葡語達人課程</h3>
+                        <p>完成150小時葡語課程，獲得東方葡萄牙學會A1級認證證書</p>
+                        <p>結業成績：16/20</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡資訊 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>聯絡我</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>電話</h3>
+                    <p>+853 6533 9186</p>
+                </div>
+                <div class="contact-item">
+                    <h3>電子郵件</h3>
+                    <p>1220002731@student.must.edu.mo</p>
+                </div>
+                <div class="contact-item">
+                    <h3>位置</h3>
+                    <p>澳門</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 林靖宜 Chloe - 個人網站</p>
+        </div>
+    </footer>
+
+    <script>
+        // 歡迎畫面功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const welcomeScreen = document.getElementById('welcome-screen');
+            const enterBtn = document.getElementById('enter-btn');
+            
+            enterBtn.addEventListener('click', function() {
+                welcomeScreen.classList.add('hidden');
+                setTimeout(() => {
+                    welcomeScreen.style.display = 'none';
+                }, 800);
+            });
+            
+            // 按 ESC 鍵也能進入網站
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    welcomeScreen.classList.add('hidden');
+                    setTimeout(() => {
+                        welcomeScreen.style.display = 'none';
+                    }, 800);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
