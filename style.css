@@ -17,6 +17,7 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+
 /* 修改後的歡迎畫面 CSS - 背景可放圖片 */
 .welcome-screen {
     position: fixed;
@@ -185,6 +186,7 @@ body {
         font-size: 1.2rem;
     }
 }
+
 /* 簡化版主頁佈局 */
 .hero {
     background: url('自我介紹背景.png');
@@ -310,7 +312,6 @@ body {
     }
 }
 
-
 /* 現代感版本導航欄 - 改進版 */
 nav {
     background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 50%, #c5e1a5 100%);
@@ -396,6 +397,20 @@ nav {
     background: white;
 }
 
+/* 漢堡菜單按鈕 - 默認隱藏 */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #37474f;
+    z-index: 1001;
+}
+
 /* 響應式設計 */
 @media (max-width: 1024px) {
     .nav-links {
@@ -410,14 +425,31 @@ nav {
 }
 
 @media (max-width: 768px) {
+    /* 修改導航欄高度 */
     nav {
-        padding: 0.8rem 0;
+        padding: 0.6rem 0;
+        max-height: 70px; /* 限制最大高度 */
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    /* 添加展開狀態 */
+    nav.expanded {
+        max-height: 300px; /* 展開時的高度 */
+        overflow-y: auto; /* 允許滾動 */
     }
     
     .nav-links {
         flex-wrap: wrap;
         gap: 0.3rem;
         justify-content: space-around;
+        padding: 0.5rem 0;
+        display: none; /* 手機版默認隱藏 */
+    }
+    
+    nav.expanded .nav-links {
+        display: flex; /* 展開時顯示 */
+        margin-top: 1.5rem;
     }
     
     .nav-links a {
@@ -432,6 +464,11 @@ nav {
         flex: 1;
         min-width: 25%;
         text-align: center;
+    }
+    
+    /* 漢堡菜單按鈕在768px以下顯示 */
+    .menu-toggle {
+        display: block; /* 顯示漢堡菜單 */
     }
 }
 
@@ -461,6 +498,34 @@ section h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     color: #8B4513;
+}
+
+/* 為所有主要內容區添加頂部間距，避免被導航欄遮擋 */
+#home, #about, #education, #skills, #portfolio, #experience, #interests, #contact {
+    scroll-margin-top: 80px; /* 確保錨點滾動時不會被導航欄遮擋 */
+}
+
+/* 只針對手機版的響應式調整 */
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 0 60px; /* 減少頂部間距 */
+    }
+    
+    /* 為移動設備調整錨點偏移 */
+    #home, #about, #education, #skills, #portfolio, #experience, #interests, #contact {
+        scroll-margin-top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 90px 0 50px; /* 進一步減少頂部間距 */
+    }
+    
+    /* 為小屏幕設備調整錨點偏移 */
+    #home, #about, #education, #skills, #portfolio, #experience, #interests, #contact {
+        scroll-margin-top: 60px;
+    }
 }
 
 /* 關於我 */
@@ -538,6 +603,7 @@ section h2 {
     position: absolute;
     left: 0;
 }
+
 /* 學歷部分 - 簡單版本 */
 .education {
     background: #f8f9fa;
@@ -582,21 +648,7 @@ section h2 {
     margin: 0;
     color: #555;
 }
-/* 響應式設計 */
-@media (max-width: 768px) {
-    .education-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .education-header {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .education-year {
-        align-self: flex-start;
-    }
-}
+
 /* 作品集樣式 */
 .portfolio {
     background: #f8f9fa;
@@ -721,6 +773,7 @@ section h2 {
     background: #f5f5f5;
     color: #4caf50;
 }
+
 /* 經歷時間線 - 完全重寫版本 */
 .experience {
     background: white;
@@ -805,7 +858,6 @@ section h2 {
     display: none;
 }
 
-
 .timeline-content h3 {
     color: #8B4513;
     margin-bottom: 10px;
@@ -841,6 +893,7 @@ section h2 {
     color: white;
     text-decoration: none;
 }
+
 /* 個人興趣 - 單一部分列點 */
 .interests {
     background: white;
@@ -878,12 +931,6 @@ section h2 {
     background: #e8f5e9;
 }
 
-/* 響應式設計 */
-@media (max-width: 768px) {
-    .interests-list {
-        columns: 1;
-    }
-}
 /* 聯絡資訊 */
 .contact {
     background: #228B22;
@@ -926,70 +973,13 @@ footer {
     }
 }
 
-/* 響應式設計 */
+/* 響應式設計 - 清理重複的部分 */
 @media (max-width: 768px) {
-    nav .container {
-        flex-direction: column;
+    .interests-list {
+        columns: 1;
     }
     
-    nav ul {
-        margin-top: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    nav ul li {
-        margin: 0.5rem 1rem;
-    }
-    
-    .hero {
-        padding: 120px 0 80px;
-    }
-    
-    .hero h2 {
-        font-size: 2rem;
-    }
-    
-    .hero p {
-        font-size: 1.1rem;
-    }
-    
-    section {
-        padding: 60px 0;
-    }
-    
-    section h2 {
-        font-size: 2rem;
-    }
-    
-    .welcome-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .welcome-content p {
-        font-size: 1.2rem;
-    }
-    
-    .timeline:before {
-        left: 30px;
-    }
-    
-    .timeline-item {
-        flex-direction: row !important;
-    }
-    
-    .timeline-date {
-        flex: 0 0 100px;
-        text-align: left !important;
-        padding: 0 1rem 0 0;
-    }
-    
-    .timeline-content:before {
-        left: -20px !important;
-        right: auto !important;
-        border-width: 10px 10px 10px 0 !important;
-        border-color: transparent #f8f9fa transparent transparent !important;
-    }
+    /* 刪除重複的導航欄樣式 */
 }
 
 @media (max-width: 480px) {
@@ -998,9 +988,5 @@ footer {
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
-    
-    .avatar {
-        width: 150px;
-        height: 150px;
-    }
 }
+

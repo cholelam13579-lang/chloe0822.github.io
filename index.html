@@ -21,8 +21,11 @@
         <button id="enter-btn" class="enter-btn">進入網站</button>
     </div>
 </div>
-<nav>
+<nav id="mainNav">
     <div class="container">
+        <!-- 漢堡菜單按鈕（僅在移動設備顯示） -->
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        
         <ul class="nav-links">
             <li><a href="#home">首頁</a></li>
             <li><a href="#about">關於我</a></li>
@@ -34,7 +37,6 @@
             <li><a href="#contact">聯絡</a></li>
         </ul>
     </div>
-</nav>
 </nav>
 <!-- 簡化後的主頁 -->
 <section id="home" class="hero">
@@ -484,6 +486,35 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 初始化活動狀態
     setActiveLink();
+});
+// 漢堡菜單功能 - 只在手機版生效
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('expanded');
+            
+            // 更新按鈕圖標
+            if (mainNav.classList.contains('expanded')) {
+                menuToggle.textContent = '✕';
+            } else {
+                menuToggle.textContent = '☰';
+            }
+        });
+        
+        // 點擊導航連結後在移動設備上收起菜單
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 480) {
+                    mainNav.classList.remove('expanded');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        });
+    }
 });
 </script>
 </body>
