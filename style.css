@@ -405,7 +405,7 @@ nav {
     font-size: 1.1rem;
 }
 
-/* 改進的漢堡菜單 */
+/* 漢堡菜單按鈕 - 默認隱藏 */
 .menu-toggle {
     display: none;
     position: absolute;
@@ -414,29 +414,22 @@ nav {
     transform: translateY(-50%);
     background: #4caf50;
     border: 2px solid #388e3c;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     color: white;
     z-index: 1001;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    padding: 8px 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    min-width: 80px;
+    min-width: 44px;
     min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+    text-align: center;
 }
 
-.menu-icon {
-    font-size: 1.2rem;
-}
-
-.menu-text {
-    font-size: 0.9rem;
-    font-weight: 600;
+.menu-toggle:hover {
+    background: #388e3c;
+    transform: translateY(-50%) scale(1.05);
 }
 /* 響應式設計 */
 @media (max-width: 1024px) {
@@ -465,6 +458,7 @@ nav {
         max-height: 300px; /* 展開時的高度 */
         overflow-y: auto; /* 允許滾動 */
     }
+    
     /* 顯示品牌名稱 */
     .nav-brand {
         display: block;
@@ -472,7 +466,8 @@ nav {
         left: 20px;
         top: 50%;
         transform: translateY(-50%);
-            }
+    }
+    
     .nav-links {
         flex-wrap: wrap;
         gap: 0.3rem;
@@ -502,10 +497,27 @@ nav {
     
     /* 漢堡菜單按鈕在768px以下顯示 */
     .menu-toggle {
-        display: flex; /* 顯示漢堡菜單 */
+        display: block; /* 顯示漢堡菜單 */
+        min-width: 80px;
+        padding: 10px 15px;
+    }
+    
+    /* 在手機版添加菜單文字 */
+    .menu-toggle::after {
+        content: " 菜單";
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-left: 2px;
     }
 }
-
+@media (max-width: 768px) {
+    .menu-toggle::after {
+        content: " 菜單";
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-left: 2px;
+    }
+}
 @media (max-width: 480px) {
     .nav-links {
         gap: 0.2rem;
