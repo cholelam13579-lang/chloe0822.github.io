@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康餐盒親子工作坊 - 林靖宜 Chloe</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 修復標題被導航欄擋住的問題 */
+        .project-detail {
+            max-width: 1000px;
+            margin: 100px auto 0;
+            padding: 2rem;
+        }
+        
+        .back-button {
+            background: #8B4513;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 1rem;
+        }
+        
+        /* 主圖樣式 - 修復文字顯示問題 */
+        .project-main-image {
+            width: 100%;
+            height: 500px; /* 增加高度讓圖片完整顯示 */
+            background: #f8f9fa;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 改為 contain 確保完整顯示 */
+            background: #f8f9fa;
+        }
+        
+        /* 多圖展示區域 */
+        .project-gallery {
+            margin: 3rem 0;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            color: #8B4513;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .gallery-item {
+            height: 220px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 確保圖片完整顯示 */
+            padding: 5px;
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        /* 內容樣式 - 修復文字排版 */
+        .project-content {
+            margin-top: 2rem;
+            line-height: 1.7;
+        }
+        
+        .project-content h3 {
+            color: #8B4513;
+            margin: 2.5rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e8f5e9;
+            font-size: 1.4rem;
+        }
+        
+        .project-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        /* 圖片放大功能 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: contain;
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+        }
+        
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px;
+            background: rgba(0,0,0,0.7);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .gallery-item {
+                height: 180px;
+            }
+            
+            .project-main-image {
+                height: 350px;
+            }
+            
+            .project-detail {
+                margin: 80px auto 0;
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="project-detail">
+        <a href="index.html#portfolio" class="back-button" onclick="setReturnFlag()">← 返回作品集</a>
+        
+        <div class="project-header">
+            <h1>健康餐盒親子工作坊</h1>
+            <p class="subtitle">為8至12歲的12組親子組合介紹營養相關資訊</p>
+        </div>
+        
+        <!-- 主圖 -->
+        <div class="project-main-image">
+            <img src="健康封面.png" alt="活動海報">
+        </div>
+        
+        <!-- 多圖展示區域 -->
+        <div class="project-gallery">
+            <h3 class="gallery-title">作品展示</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="健康餐盒.png" alt="工作坊海報">
+                    <div class="gallery-caption">工作坊海報</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="ppt部分展示圖1.png" alt="ppt展示">
+                    <div class="gallery-caption">部分ppt展示</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="ppt部分展示圖2.png" alt="ppt展示">
+                    <div class="gallery-caption">部分ppt展示</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="ppt部分展示圖3.png" alt="ppt展示">
+                    <div class="gallery-caption">部分ppt展示</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="ppt部分展示圖4.png" alt="ppt展示">
+                    <div class="gallery-caption">部分ppt展示</div>
+                </div>    
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="ppt部分展示圖5.png" alt="ppt展示">
+                    <div class="gallery-caption">部分ppt展示</div>
+                 </div>
+        </div>
+        
+        <div class="project-content">
+            <h3>項目背景</h3>
+            <p>由澳門科學館主辦，為8至12歲親子群體以故事和問答互動形式輕鬆講解維生素、礦物質與必需脂肪酸對人體的作用及均衡飲食的重要性</p>
+            
+        </div>
+    </div>
+
+    <!-- 圖片放大模態框 -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="caption" id="modalCaption"></div>
+    </div>
+
+    <script>
+        function setReturnFlag() {
+            localStorage.setItem('returnToPortfolio', 'true');
+        }
+        
+        // 圖片放大功能
+        function openModal(element) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("modalCaption");
+            
+            modal.style.display = "block";
+            modalImg.src = element.querySelector('img').src;
+            captionText.innerHTML = element.querySelector('.gallery-caption').innerHTML;
+        }
+        
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        
+        // 點擊模態框外部關閉
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // ESC鍵關閉模態框
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // 檢查圖片是否存在，如果不存在顯示佔位符
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.gallery-item img');
+            images.forEach(img => {
+                img.onerror = function() {
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuWbvuWDj+WQjembhjwvdGV4dD48L3N2Zz4=';
+                    this.alt = '圖片載入失敗';
+                };
+            });
+        });
+    </script>
+</body>
+</html>

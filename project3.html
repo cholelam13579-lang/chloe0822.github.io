@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>實習詳情 - 種遠科研大健康製造廠</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .back-btn {
+            background: #8B4513;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: #4caf50;
+            transform: translateY(-2px);
+        }
+        .project-detail {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #8B4513;
+            border-bottom: 3px solid #8B4513;
+            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            color: #8B4513;
+            margin: 2rem 0 1rem 0;
+            padding-left: 10px;
+            border-left: 4px solid #4caf50;
+        }
+        h3 {
+            color: #2e7d32;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        
+        /* 部門樣式 */
+        .department {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #8B4513;
+        }
+        .department-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .department-duration {
+            background: #4caf50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* 工作內容列表 */
+        .work-list {
+            list-style: none;
+            padding: 0;
+        }
+        .work-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .work-list li:before {
+            content: "•";
+            color: #4caf50;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* 技能標籤 */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .skill-tag {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+        
+        /* 收穫卡片 */
+        .insight-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        /* 圖片網格樣式 */
+        .project-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .gallery-item {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .gallery-caption {
+            margin-top: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 模態框樣式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 8px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .close:hover {
+            color: #ccc;
+        }
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            padding: 10px;
+            background: rgba(0,0,0,0.7);
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+            .project-detail {
+                padding: 1rem;
+            }
+            .department-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .project-images {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="goBackToExperience()">← 返回經歷</button>
+        
+        <div class="project-detail">
+            <h1>種遠科研大健康製造廠 - 實習經歷</h1>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                <div style="text-align: center; padding: 1rem; background: #f5f5f5; border-radius: 8px;">
+                    <div style="font-size: 1.2rem; font-weight: bold; color: #8B4513;">5週</div>
+                    <div style="color: #666; font-size: 0.9rem;">實習期間</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: #f5f5f5; border-radius: 8px;">
+                    <div style="font-size: 1.2rem; font-weight: bold; color: #8B4513;">3個部門</div>
+                    <div style="color: #666; font-size: 0.9rem;">輪崗學習</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: #f5f5f5; border-radius: 8px;">
+                    <div style="font-size: 1.2rem; font-weight: bold; color: #8B4513;">保健食品</div>
+                    <div style="color: #666; font-size: 0.9rem;">生產流程</div>
+                </div>
+            </div>
+
+            <!-- 生產部 -->
+            <div class="department">
+                <div class="department-header">
+                    <h2> 生產部實習</h2>
+                    <span class="department-duration">3週</span>
+                </div>
+                
+                <h3>主要工作內容</h3>
+                <ul class="work-list">
+                    <li>操作半自動錠劑及膠囊數粒機，進行保健食品分裝</li>
+                    <li>檢查待包裝品的編號、有效日期、放行標籤及包裝完整性</li>
+                    <li>篩選內包材瑕疵品，確保產品質量</li>
+                    <li>定期進行人工抽檢，驗證機器計數準確性</li>
+                    <li>協助膏體條狀包半成品批次返工工作</li>
+                    <li>嚴格遵守潔淨區衛生規範，防止交叉污染</li>
+                </ul>
+                
+                <div class="skill-tags">
+                    <span class="skill-tag">機器操作</span>
+                    <span class="skill-tag">質量檢查</span>
+                    <span class="skill-tag">GMP規範</span>
+                    <span class="skill-tag">生產流程</span>
+                </div>
+            </div>
+
+            <!-- 包裝部 -->
+            <div class="department">
+                <div class="department-header">
+                    <h2> 包裝部實習</h2>
+                    <span class="department-duration">2天</span>
+                </div>
+                
+                <h3>主要工作內容</h3>
+                <ul class="work-list">
+                    <li>沿預設虛線折疊包裝紙盒及內托</li>
+                    <li>裝盒前進行最終目視檢查，確保無不良品</li>
+                    <li>使用熱熔膠槍對紙盒進行封口</li>
+                    <li>協助熱風塑封操作</li>
+                </ul>
+                
+            </div>
+
+            <!-- 品質保證部 -->
+            <div class="department">
+                <div class="department-header">
+                    <h2> 品質保證部實習</h2>
+                    <span class="department-duration">8天</span>
+                </div>
+                
+                <h3>品質控制工作</h3>
+                <ul class="work-list">
+                    <li>整理新採購原料的COA及檢測報告，制定《原料鑑別標準》</li>
+                    <li>進行10萬級潔淨區空氣潔淨度檢測與記錄</li>
+                    <li>原料驗收：核對來料信息，進行詳細拍照記錄</li>
+                    <li>執行膠囊裝量差異抽檢和水分測定</li>
+                    <li>進行條狀包密封性檢測</li>
+                    <li>參與半成品及成品放行流程</li>
+                </ul>
+                
+                <h3>質量檢測項目</h3>
+                <ul class="work-list">
+                    <li><strong>裝量差異檢查：</strong>隨機抽樣，精密稱重，確保符合標準</li>
+                    <li><strong>水分測定：</strong>檢測原料粉末水分含量</li>
+                    <li><strong>密封性檢測：</strong>確保包裝完整性</li>
+                    <li><strong>空氣潔淨度：</strong>監控生產環境質量</li>
+                </ul>
+                
+                <div class="skill-tags">
+                    <span class="skill-tag">質量控制</span>
+                    <span class="skill-tag">數據分析</span>
+                    <span class="skill-tag">標準制定</span>
+                    <span class="skill-tag">檢測技術</span>
+                </div>
+            </div>
+
+            <!-- 圖片區域 - 修正後的結構 -->
+            <div class="project-images">
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="實習單位.png" alt="實習單位" onerror="this.style.display='none'">
+                    <div class="gallery-caption">實習單位</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="生產部_半自動數粒機.png" alt="生產部部分工作內容" onerror="this.style.display='none'">
+                    <div class="gallery-caption">生產部部分工作內容</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="裝量差異檢查1.png" alt="裝量差異檢查1" onerror="this.style.display='none'">
+                    <div class="gallery-caption">裝量差異檢查1</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="裝量差異檢查2.png" alt="裝量差異檢查2" onerror="this.style.display='none'">
+                    <div class="gallery-caption">裝量差異檢查2</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="裝量差異檢查3.png" alt="裝量差異檢查3" onerror="this.style.display='none'">
+                    <div class="gallery-caption">裝量差異檢查3</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="水分含量測定.png" alt="水分含量測定" onerror="this.style.display='none'">
+                    <div class="gallery-caption">水分含量測定</div>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+    <!-- 圖片放大模態框 -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="caption" id="modalCaption"></div>
+    </div>
+
+    <script>
+        function setReturnFlag() {
+            localStorage.setItem('returnToPortfolio', 'true');
+        }
+        
+        // 圖片放大功能
+        function openModal(element) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("modalCaption");
+            
+            modal.style.display = "block";
+            modalImg.src = element.querySelector('img').src;
+            captionText.innerHTML = element.querySelector('.gallery-caption').innerHTML;
+        }
+        
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        
+        // 點擊模態框外部關閉
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // ESC鍵關閉模態框
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // 檢查圖片是否存在，如果不存在顯示佔位符
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.gallery-item img');
+            images.forEach(img => {
+                img.onerror = function() {
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuWbvuWDj+WQjembhjwvdGV4dD48L3N2Zz4=';
+                    this.alt = '圖片載入失敗';
+                };
+            });
+        });
+        
+        function goBackToExperience() {
+            localStorage.setItem('skipWelcome', 'true');
+            window.location.href = 'index.html#experience';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.referrer.includes('index.html')) {
+                localStorage.setItem('skipWelcome', 'true');
+            }
+        });
+    </script>
+</body>
+</html>

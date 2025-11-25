@@ -21,53 +21,96 @@
         <button id="enter-btn" class="enter-btn">進入網站</button>
     </div>
 </div>
-  <!-- 修改後的導航欄 -->
 <nav>
     <div class="container">
         <ul class="nav-links">
             <li><a href="#home">首頁</a></li>
             <li><a href="#about">關於我</a></li>
+            <li><a href="#education">學歷</a></li>
             <li><a href="#skills">專業能力</a></li>
             <li><a href="#portfolio">作品集</a></li>
-            <li><a href="#interests">個人興趣</a></li>
             <li><a href="#experience">經歷</a></li>
+            <li><a href="#interests">個人興趣</a></li>
             <li><a href="#contact">聯絡</a></li>
         </ul>
     </div>
 </nav>
-    <!-- 主頁 -->
-    <section id="home" class="hero">
-        <div class="container">
-            <img src="images/你的照片.jpg" alt="林靖宜" class="avatar">
-            <h2>你好，我是林靖宜 (Chloe)</h2>
-            <p>澳門科技大學食品與營養科學學士 | GPA 3.58/4.0</p>
-            <p>結合科學知識與實踐經驗，致力於食品安全與營養健康推廣</p>
+</nav>
+<!-- 簡化後的主頁 -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>你好，我是林靖宜 (Chloe)</h2> 
+                <div class="text-placeholder">
+                    <p>我是一名正在就讀食品與營養科學學士課程的大四學生，個性活潑外向，擅長團隊協作，能快速適應高強度工作節奏，具備專業理論基礎和持續學習能力，希望能運用專業知識令人們食得健康、安全和開心。</p>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <!-- 假圖佔位 - 之後可以替換成你的實際圖片 -->
+                <div class="placeholder-image">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">👩‍🔬</span>
+                        <p>專業形象照片</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 關於我 -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>關於我</h2>
-            <div class="about-grid">
-                <div class="about-item">
-                    <h3>個人簡介</h3>
-                    <p>21歲，現居澳門，就讀澳門科技大學食品與營養科學學士學位課程</p>
-                    <p>累計GPA: 3.58/4.0，預計2026年畢業</p>
+   <!-- 關於我 -->
+<section id="about" class="about">
+    <div class="container">
+        <h2>關於我</h2>
+        <div class="about-grid">
+            <div class="about-item">
+                <h3>個人簡介</h3>
+                <p>21歲，現居澳門，就讀澳門科技大學食品與營養科學學士學位課程</p>
+                <p>累計GPA: 3.58/4.0，預計2026年畢業</p>
+            </div>
+            <div class="about-item">
+                <h3>學術成就</h3>
+                <ul>
+                    <li>院長優秀生榜（2023/2024）</li>
+                    <li>工銀澳門優才獎學金</li>
+                    <li>中學保薦生全額獎學金</li>
+                    <li>第五屆"意誠杯"健康料理大賽冠軍</li>
+                </ul>
+            </div>
+            <div class="about-item">
+                <h3>職業目標</h3>
+                <p>希望在食品質量控制、營養推廣或食品研發領域發展，結合專業知識與實踐經驗，為食品安全與公共健康貢獻力量。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 學歷部分 - 移到關於我外面 -->
+<section id="education" class="education">
+    <div class="container">
+        <h2>學歷背景</h2>
+        <div class="education-simple">
+            <div class="education-item-simple">
+                <div class="school-info">
+                    <h3>澳門科技大學</h3>
+                    <span class="year">2022年-2026年</span>
                 </div>
-                <div class="about-item">
-                    <h3>學術成就</h3>
-                    <ul>
-                        <li>院長優秀生榜（2023/2024）</li>
-                        <li>工銀澳門優才獎學金</li>
-                        <li>中學保薦生全額獎學金</li>
-                        <li>第五屆"意誠杯"健康料理大賽冠軍</li>
-                    </ul>
+                <p>食品與營養科學學士學位課程 | GPA: 3.58/4.0</p>
+            </div>
+            
+            <div class="education-item-simple">
+                <div class="school-info">
+                    <h3>澳門嘉諾撒聖心中學</h3>
+                    <span class="year">2007年-2022年</span>
                 </div>
-                <div class="about-item">
-                    <h3>職業目標</h3>
-                    <p>希望在食品質量控制、營養推廣或食品研發領域發展，結合專業知識與實踐經驗，為食品安全與公共健康貢獻力量。</p>
-                </div>
+                <p>幼稚園，小學及中學教育</p>
+            </div>
+        </div>
+    </div>
+</section>
+</section>
             </div>
         </div>
     </section>
@@ -107,18 +150,19 @@
         </div>
     </section>
 
-   <!-- 作品展示 -->
+  <!-- 作品展示 -->
 <section id="portfolio" class="portfolio">
     <div class="container">
         <h2>作品集</h2>
         <div class="portfolio-grid">
+            
             <!-- 項目一：健康料理大賽 -->
-            <div class="portfolio-item" onclick="openProject('project1.html')">
-                <div class="project-image">
-                    <div class="image-placeholder">圖片位置</div>
+            <div class="portfolio-item">
+                <div class="project-image" onclick="openProject('project1.html')">
+                    <img src="意誠杯封1.png" alt="健康料理大賽">
                 </div>
                 <div class="project-info">
-                    <h3>健康料理大賽冠軍作品</h3>
+                    <h3>第五屆"意誠"杯健康料理大賽營養餐單</h3>
                     <p>為高血脂症患者設計的營養餐單</p>
                     <p class="project-date">2023年11月</p>
                     <div class="project-tags">
@@ -126,88 +170,99 @@
                         <span class="tag">團隊合作</span>
                         <span class="tag">創意料理</span>
                     </div>
-                    <button class="view-project-btn">查看詳情 →</button>
+                    <button class="view-project-btn" onclick="openProject('project1.html')">查看詳情 →</button>
+                    <a href="https://mp.weixin.qq.com/s/8z83MI6TOAwBCWy1i2in6w" target="_blank" class="external-link">相關活動資訊</a>
                 </div>
             </div>
 
-            <!-- 項目二：食品廠實習 -->
-            <div class="portfolio-item" onclick="openProject('project2.html')">
-                <div class="project-image">
-                    <div class="image-placeholder">圖片位置</div>
+            <!-- 項目二：科學館-健康餐盒活動 -->
+            <div class="portfolio-item">
+                <div class="project-image" onclick="openProject('project2.html')">
+                    <img src="健康封面.png" alt="健康餐盒活動">
                 </div>
                 <div class="project-info">
-                    <h3>食品質量控制實習</h3>
-                    <p>種速科研大健康製造廠實習經驗</p>
-                    <p class="project-date">2025年6月-7月</p>
-                    <div class="project-tags">
-                        <span class="tag">品質控制</span>
-                        <span class="tag">生產流程</span>
-                        <span class="tag">食品安全</span>
-                    </div>
-                    <button class="view-project-btn">查看詳情 →</button>
-                </div>
-            </div>
-
-            <!-- 項目三：科學館導賞 -->
-            <div class="portfolio-item" onclick="openProject('project3.html')">
-                <div class="project-image">
-                    <div class="image-placeholder">圖片位置</div>
-                </div>
-                <div class="project-info">
-                    <h3>科學推廣與教育</h3>
-                    <p>澳門科學館-</p>
-                    <p class="project-date">2024年6月-至今</p>
+                    <h3>健康餐盒親子工作坊</h3>
+                    <p>科學推廣與教育</p> 
+                    <p class="project-date">2025年4月5日</p>
                     <div class="project-tags">
                         <span class="tag">公眾溝通</span>
-                        <span class="tag">科學教育</span>
-                        <span class="tag">服務業</span>
+                        <span class="tag">營養講座</span>
                     </div>
-                    <button class="view-project-btn">查看詳情 →</button>
+                    <button class="view-project-btn" onclick="openProject('project2.html')">查看詳情 →</button>
+                    <a href="https://www.msc.org.mo/zh/activity-detail/41/440e70b46d7f7b375ed4c9bfe75faed2" target="_blank" class="external-link">相關活動資訊</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+        
+    </section>
+
+<!-- 經歷 -->
+<section id="experience" class="experience">
+    <div class="container">
+        <h2>經歷</h2>
+        <div class="timeline">
+            <!-- 項目1 -->
+            <div class="timeline-item">
+                <div class="timeline-date">2024年6月-至今</div>
+                <div class="timeline-content">
+                    <h3>澳門科學館 - 導賞員</h3>
+                    <p>協助展覽中心前線工作、公眾指引和諮詢服務</p>
+                </div>
+            </div>
+            
+            <!-- 項目2：實習（可點擊） -->
+            <div class="timeline-item">
+                <div class="timeline-date">2025年6月-7月</div>
+                <div class="timeline-content">
+                    <h3>種速科研大健康製造廠 - 生產技術員/QC實習</h3>
+                    <p>生產技術員：根據生產流程操作機器</p>
+                    <p>QC：產品生產後的品質檢測和把握工作</p>
+                    <a href="project3.html" class="timeline-btn">查看實習詳情 →</a>
+                </div>
+            </div>
+            
+            <!-- 項目3 -->
+            <div class="timeline-item">
+                <div class="timeline-date">2023年11月</div>
+                <div class="timeline-content">
+                    <h3>第五屆"意誠杯"健康料理大賽 - 冠軍</h3>
+                    <p>主辦單位：澳門科技大學醫學院學生籌備委員會</p>
+                    <p>為高血脂症患者設計營養餐單並現場制作料理</p>
+                </div>
+            </div>
+            
+            <!-- 項目4：葡語達人（可點擊） -->
+            <div class="timeline-item">
+                <div class="timeline-date">2023年6月-8月</div>
+                <div class="timeline-content">
+                    <h3>澳門教育及青年發展局 - 葡語達人課程</h3>
+                    <p>完成150小時葡語課程，獲得東方葡萄牙學會A1級認證證書</p>
+                    <p>結業成績：16/20</p>
+                    <a href="project4.html" class="timeline-btn">查看課程詳情 →</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-    <!-- 經歷 -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2>專業經歷</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2024年6月-至今</div>
-                    <div class="timeline-content">
-                        <h3>澳門科學館 - 導賞員</h3>
-                        <p>協助展覽中心前線工作、公眾指引和諮詢服務</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2025年6月-7月</div>
-                    <div class="timeline-content">
-                        <h3>種速科研大健康製造廠 - 生產技術員/QC實習</h3>
-                        <p>生產技術員：根據生產流程操作機器</p>
-                        <p>QC：產品生產後的品質檢測和把握工作</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2023年11月</div>
-                    <div class="timeline-content">
-                        <h3>第五屆"意誠杯"健康料理大賽 - 冠軍</h3>
-                        <p>主辦單位：澳門科技大學醫學院學生籌備委員會</p>
-                        <p>為高血脂症患者設計營養餐單並現場制作料理</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2023年6月-8月</div>
-                    <div class="timeline-content">
-                        <h3>澳門教育及青年發展局 - 葡語達人課程</h3>
-                        <p>完成150小時葡語課程，獲得東方葡萄牙學會A1級認證證書</p>
-                        <p>結業成績：16/20</p>
-                    </div>
-                </div>
-            </div>
+<!-- 個人興趣 - 單一部分列點 -->
+<section id="interests" class="interests">
+    <div class="container">
+        <h2>個人興趣</h2>
+        <div class="interests-single">
+            <ul class="interests-list">
+                <li>🏓️ 打乒乓球</li>
+                <li>📺 觀看運動比賽（排球、乒乓球、跳水）</li>
+                <li>🎹 彈鋼琴</li>
+                <li>🍜 品嚐各種美食</li>
+            </ul>
         </div>
-    </section>
-
+    </div>
+</section>
+        
+       
     <!-- 聯絡資訊 -->
     <section id="contact" class="contact">
         <div class="container">
@@ -215,11 +270,13 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <h3>電話</h3>
-                    <p>+853 6533 9186</p>
+                    <p>澳門：+853 6533 9186</p>
+                    <p>內地：+86 191 6889 2046</p>
                 </div>
                 <div class="contact-item">
                     <h3>電子郵件</h3>
                     <p>1220002731@student.must.edu.mo</p>
+                    <p>cholelam13579@gmail.com</p>
                 </div>
                 <div class="contact-item">
                     <h3>位置</h3>
@@ -232,22 +289,24 @@
     <!-- 頁尾 -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 林靖宜 Chloe - 個人網站</p>
+            <p>&copy; 2025 林靖宜 Chloe - 個人網站</p>
         </div>
     </footer>
 
     <script>
-        // 歡迎畫面功能
+       // 歡迎畫面功能
         document.addEventListener('DOMContentLoaded', function() {
             const welcomeScreen = document.getElementById('welcome-screen');
             const enterBtn = document.getElementById('enter-btn');
             
-            enterBtn.addEventListener('click', function() {
-                welcomeScreen.classList.add('hidden');
-                setTimeout(() => {
-                    welcomeScreen.style.display = 'none';
-                }, 800);
-            });
+            if (enterBtn) {
+                enterBtn.addEventListener('click', function() {
+                    welcomeScreen.classList.add('hidden');
+                    setTimeout(() => {
+                        welcomeScreen.style.display = 'none';
+                    }, 800);
+                });
+            }
             
             // 按 ESC 鍵也能進入網站
             document.addEventListener('keydown', function(event) {
@@ -259,24 +318,173 @@
                 }
             });
         });
-        // 打開項目詳情頁面
+
+        // ⭐⭐⭐ 重要：打開項目詳情頁面的函數 ⭐⭐⭐
+        function openProject(projectUrl) {
+            console.log('嘗試打開:', projectUrl);
+            window.open(projectUrl, '_blank');
+        }
+
+        // 為查看詳情按鈕添加點擊事件（備用）
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewButtons = document.querySelectorAll('.view-project-btn');
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const portfolioItem = this.closest('.portfolio-item');
+                    // 根據按鈕文字判斷打開哪個項目
+                    const projectTitle = this.closest('.portfolio-item').querySelector('h2').textContent;
+                    let projectUrl = 'project1.html'; // 默認
+                    
+                    if (projectTitle.includes('健康料理')) {
+                        projectUrl = 'project1.html';
+                    } else if (projectTitle.includes('')) {
+                        projectUrl = 'project2.html';
+                    }
+                    
+                    window.open(projectUrl, '_blank');
+                });
+            });
+        });
+// 在 DOMContentLoaded 事件開始時添加
+document.addEventListener('DOMContentLoaded', function() {
+    // 檢查是否需要跳過歡迎畫面
+    if (window.location.hash === '#portfolio' || localStorage.getItem('returnToPortfolio') === 'true') {
+        const welcomeScreen = document.getElementById('welcome-screen');
+        if (welcomeScreen) {
+            welcomeScreen.style.display = 'none';
+        }
+        localStorage.removeItem('returnToPortfolio');
+    }
+    
+    // 現有的歡迎畫面代碼...
+});
+// 打開項目詳情頁面
 function openProject(projectUrl) {
-    window.open(projectUrl, '_blank');
+    window.location.href = projectUrl;
 }
 
-// 為查看詳情按鈕添加點擊事件（備用）
+// 阻止按鈕點擊事件冒泡（避免觸發兩次）
 document.addEventListener('DOMContentLoaded', function() {
-    const viewButtons = document.querySelectorAll('.view-project-btn');
-    viewButtons.forEach(button => {
+    const timelineButtons = document.querySelectorAll('.timeline-btn');
+    timelineButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            e.stopPropagation(); // 防止觸發父元素點擊
-            const portfolioItem = this.closest('.portfolio-item');
-            // 這裡可以根據具體項目打開對應頁面
-            // 暫時先用alert示範
-            alert('將打開項目詳情頁面');
+            e.stopPropagation(); // 阻止事件冒泡
         });
     });
 });
+// 主頁面加載時滾動到錨點
+window.addEventListener('DOMContentLoaded', function() {
+   if (window.location.hash === '#experience') {
+       setTimeout(function() {
+           document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
+       }, 100);
+   }
+});
+// 修改歡迎畫面功能
+document.addEventListener('DOMContentLoaded', function() {
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const enterBtn = document.getElementById('enter-btn');
+    
+    // 檢查是否應該跳過歡迎頁面（從詳細頁面返回時）
+    const shouldSkipWelcome = localStorage.getItem('skipWelcome') === 'true' || 
+                             window.location.hash === '#experience';
+    
+    if (shouldSkipWelcome && welcomeScreen) {
+        welcomeScreen.style.display = 'none';
+        localStorage.removeItem('skipWelcome'); // 清除標記
+    }
+    
+    if (enterBtn) {
+        enterBtn.addEventListener('click', function() {
+            // 設置標記，表示用戶已經看過歡迎頁面
+            localStorage.setItem('hasSeenWelcome', 'true');
+            welcomeScreen.classList.add('hidden');
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+            }, 800);
+        });
+    }
+    
+    // 按 ESC 鍵也能進入網站
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            localStorage.setItem('hasSeenWelcome', 'true');
+            welcomeScreen.classList.add('hidden');
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+            }, 800);
+        }
+    });
+});
+
+// 修改打開項目詳情頁面的函數
+function openProject(projectUrl) {
+    // 在跳轉前設置標記，表示從詳細頁面返回時要跳過歡迎頁面
+    localStorage.setItem('skipWelcome', 'true');
+    window.location.href = projectUrl;
+}
     </script>
+
+    <script>
+// 導航欄活動狀態處理
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section');
+    
+    // 移除所有活動狀態
+    function removeActiveClasses() {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+    }
+    
+    // 根據滾動位置設置活動狀態
+    function setActiveLink() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // 點擊導航連結時設置活動狀態
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            removeActiveClasses();
+            this.classList.add('active');
+            
+            // 平滑滾動
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+    
+    // 滾動時更新活動狀態
+    window.addEventListener('scroll', setActiveLink);
+    
+    // 初始化活動狀態
+    setActiveLink();
+});
+</script>
 </body>
 </html>

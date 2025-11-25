@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>葡語達人課程詳情 - 澳門教育及青年發展局</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .back-btn {
+            background: #8B4513;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: #4caf50;
+            transform: translateY(-2px);
+        }
+        .project-detail {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #8B4513;
+            border-bottom: 3px solid #8B4513;
+            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            color: #8B4513;
+            margin: 2rem 0 1rem 0;
+            padding-left: 10px;
+            border-left: 4px solid #4caf50;
+        }
+        h3 {
+            color: #2e7d32;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        
+        /* 課程部門樣式 */
+        .department {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #8B4513;
+        }
+        .department-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .department-duration {
+            background: #4caf50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* 學習內容列表 */
+        .work-list {
+            list-style: none;
+            padding: 0;
+        }
+        .work-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .work-list li:before {
+            content: "•";
+            color: #4caf50;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* 技能標籤 */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .skill-tag {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+        
+        /* 收穫卡片 */
+        .insight-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        /* 證書資訊 */
+        .certificate-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        /* 統計數字 */
+        .course-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f5f5f5;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #8B4513;
+            display: block;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 圖片網格樣式 */
+        .project-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .gallery-item {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .gallery-caption {
+            margin-top: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 模態框樣式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 8px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .close:hover {
+            color: #ccc;
+        }
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            padding: 10px;
+            background: rgba(0,0,0,0.7);
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+            .project-detail {
+                padding: 1rem;
+            }
+            .department-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .project-images {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="goBackToExperience()">← 返回經歷</button>
+        
+        <div class="project-detail">
+            <h1>葡語達人課程 - 語言學習經歷</h1>
+            
+            <div class="course-stats">
+                <div class="stat-item">
+                    <span class="stat-number">150</span>
+                    <span class="stat-label">學習時數</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">A1</span>
+                    <span class="stat-label">認證等級</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">16/20</span>
+                    <span class="stat-label">結業成績</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3個月</span>
+                    <span class="stat-label">課程期間</span>
+                </div>
+            </div>
+
+            <!-- 課程概覽 -->
+            <div class="department">
+                <div class="department-header">
+                    <h2>📚 課程概覽</h2>
+                    <span class="department-duration">2023年6月-8月</span>
+                </div>
+                
+                <p><strong>主辦單位：</strong>澳門教育及青年發展局 × 東方葡萄牙學會</p>
+                
+                <h3>課程特色</h3>
+                <ul class="work-list">
+                    <li>密集式葡萄牙語基礎課程，共150學習時數</li>
+                    <li>由資深葡語教師授課，注重實用會話能力</li>
+                    <li>結合語言學習與葡萄牙文化體驗</li>
+                    <li>小班教學，確保每位學員充分參與</li>
+                </ul>
+                
+                <div class="skill-tags">
+                    <span class="skill-tag">基礎葡語</span>
+                    <span class="skill-tag">會話能力</span>
+                    <span class="skill-tag">文化理解</span>
+                    <span class="skill-tag">國際認證</span>
+                </div>
+            </div>
+
+            <!-- 學習成果 -->
+            <div class="department">
+                <div class="department-header">
+                    <h2>🎯 學習成果</h2>
+                    <span class="department-duration">A1級認證</span>
+                </div>
+                
+                <h3>語言能力掌握</h3>
+                <ul class="work-list">
+                    <li>掌握基礎葡萄牙語會話能力，能夠進行簡單的日常交流</li>
+                    <li>了解葡萄牙語的基本文法結構和發音規則</li>
+                    <li>具備閱讀簡單葡語文章和寫作的能力</li>
+                    <li>對葡萄牙及葡語系國家文化有初步認識</li>
+                    <li>獲得國際認可的A1級語言能力證書</li>
+                </ul>
+                
+                <div class="insight-card">
+                    <strong>語言應用：</strong>能夠在旅遊、購物、餐廳等日常情境中使用基礎葡語進行溝通，理解簡單指示和問題。
+                </div>
+            </div>
+
+            <!-- 證書認證 -->
+            <div class="certificate-info">
+                <h3>🎓 證書認證</h3>
+                <p>成功完成課程並獲得<strong>東方葡萄牙學會A1級認證證書</strong>，證明具備基礎葡萄牙語溝通能力。</p>
+            
+            </div>
+
+            <!-- 課程圖片 -->
+            <div class="project-images">
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="課堂環境.png" alt="課堂學習" onerror="this.style.display='none'">
+                    <div class="gallery-caption">課堂學習環境</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="課程証書.png" alt="證書展示" onerror="this.style.display='none'">
+                    <div class="gallery-caption">課程結業證書</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="文化體驗.png" alt="文化交流" onerror="this.style.display='none'">
+                    <div class="gallery-caption">葡萄牙文化體驗</div>
+                </div>
+                   <div class="gallery-item" onclick="openModal(this)">
+                    <img src="文化體驗2.png" alt="文化交流" onerror="this.style.display='none'">
+                    <div class="gallery-caption">葡萄牙文化體驗</div>
+                </div>
+                   <div class="gallery-item" onclick="openModal(this)">
+                    <img src="文化體驗3.png" alt="文化交流" onerror="this.style.display='none'">
+                    <div class="gallery-caption">葡萄牙文化體驗</div>
+                </div>
+            </div>
+            
+            <!-- 學習心得 -->
+            <div class="insight-card">
+                <h3>💡 學習心得</h3>
+                <p>「通過150小時的密集學習，我不僅掌握了基礎葡語，更深刻體會到語言作為文化交流橋樑的重要性。在澳門這個多元文化社會，葡語能力為我打開了認識葡語系國家文化的大門。」</p>
+                <p>「課程不僅教授語言知識，更通過文化活動讓我深入了解葡萄牙的歷史、音樂和美食，以及結識來自不同高校也對葡語感興趣的同學，這種全方位的學習體驗讓語言學習變得生動有趣。」</p>
+            </div>
+        </div>
+    </div>
+            
+    <!-- 圖片放大模態框 -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="caption" id="modalCaption"></div>
+    </div>
+
+    <script>
+        function goBackToExperience() {
+            localStorage.setItem('skipWelcome', 'true');
+            window.location.href = 'index.html#experience';
+        }
+        
+        // 圖片放大功能
+        function openModal(element) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("modalCaption");
+            
+            modal.style.display = "block";
+            modalImg.src = element.querySelector('img').src;
+            captionText.innerHTML = element.querySelector('.gallery-caption').innerHTML;
+        }
+        
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        
+        // 點擊模態框外部關閉
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // ESC鍵關閉模態框
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // 檢查圖片是否存在，如果不存在顯示佔位符
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.gallery-item img');
+            images.forEach(img => {
+                img.onerror = function() {
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuWbvuWDj+WQjembhjwvdGV4dD48L3N2Zz4=';
+                    this.alt = '圖片載入失敗';
+                };
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.referrer.includes('index.html')) {
+                localStorage.setItem('skipWelcome', 'true');
+            }
+        });
+    </script>
+</body>
+</html>
